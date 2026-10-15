@@ -22,12 +22,12 @@ pipeline {
         stage('Login to Docker Hub') {
             steps {
                 withCredentials([string(
-                    credentialsId: 'dockerhub-PAT1',
-                    variable: 'DOCKER_PAT1'
+                    credentialsId: 'dockerhub-PAT2',
+                    variable: 'DOCKER_PAT'
                 )]) {
                     bat '''
                     @echo off
-                    echo %DOCKER_PAT1%|docker login -u anupama2610 --password-stdin
+                    echo %DOCKER_PAT%|docker login -u anupama2610 --password-stdin
                    if errorlevel 1 exit /b 1
                     '''
                 }
