@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat  'docker build -t %DOCKER_IMAGE%: latest .'
+                bat 'docker build -t %DOCKER_IMAGE%:latest .'
             }
         }
 
@@ -27,7 +27,7 @@ pipeline {
                 )]) {
                     bat '''
                     @echo off
-                    echo %DOCKER_PAT%|docker login -u anupama2610 --password-stdin
+                    echo %DOCKER_PAT%|docker login -u akshatha29 --password-stdin
                    if errorlevel 1 exit /b 1
                     '''
                 }
@@ -36,7 +36,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker push %DOCKER_IMAGE%:v2'
+                bat 'docker push %DOCKER_IMAGE%:latest'
             }
         }
     }
