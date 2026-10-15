@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "Anupama2610/a"
+        DOCKER_IMAGE = "anupama2610/a"
     }
 
     stages {
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat  'docker build -t %DOCKER_IMAGE%: latest'
+                bat  'docker build -t %DOCKER_IMAGE%: latest .'
             }
         }
 
