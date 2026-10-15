@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "anupama2610/Anupama2610/imagename"
+        DOCKER_IMAGE = "anupama2610/a"
     }
 
     stages {
@@ -36,7 +36,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker push %DOCKER_IMAGE%:v1'
+                bat 'docker push %DOCKER_IMAGE%:latest'
             }
         }
     }
